@@ -36,18 +36,18 @@ services:
       - my_network
 
 
-#  gateway:
-#    hostname: gateway
-#    image: gateway:latest
-#    build:
-#      context: ./Buy4Wheels-gateway
-#      dockerfile: Dockerfile
-#    ports:
-#      - "8080:8080"
-#    depends_on:
-#      - eureka
-#    networks:
-#      - my_network
+  gateway:
+    hostname: gateway
+    image: gateway:latest
+    build:
+      context: ./Buy4Wheels-gateway
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+    depends_on:
+      - eureka
+    networks:
+      - my_network
 
 networks:
   my_network:
