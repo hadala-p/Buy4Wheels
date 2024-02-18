@@ -11,7 +11,7 @@ public class EntityNotFoundException extends WarehausemanException {
         super(message);
     }
 
-    public EntityNotFoundException(Class<?> entity, int id) {
+    public EntityNotFoundException(Class<?> entity, UUID id) {
         super("Not found " + entity.getSimpleName() + " with id " + id);
     }
 }
