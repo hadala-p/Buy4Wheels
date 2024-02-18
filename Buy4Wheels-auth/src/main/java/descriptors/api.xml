@@ -18,7 +18,7 @@
         <fileSet>
             <directory>${project.build.outputDirectory}</directory>
             <includes>
-                <include>piotr/hadala/buy4wheelsauth/security/**</include>
+                <include>piotr/hadala/buy4wheelsauth/application/**</include>
             </includes>
             <outputDirectory>/</outputDirectory>
         </fileSet>
