@@ -1,0 +1,22 @@
+db:
+  name: buy4wheels
+  username: "admin"
+  password: "admin"
+  url: jdbc:h2:mem:${db.name}
+  driver-class-name: org.h2.Driver
+
+server:
+  port: 8080
+spring:
+  datasource:
+#    driver-class-name: ${db.driver-class-name}
+    url: ${db.url}
+    username: ${db.username}
+    password: ${db.password}
+  liquibase:
+    contexts: dev
+#    change-log: classpath:db/changelog/master.xml
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
