@@ -6,9 +6,6 @@ import org.springframework.web.bind.annotation.*;
 import piotr.hadala.buy4wheelscar.application.dtos.models.ModelCreateRequestDTO;
 import piotr.hadala.buy4wheelscar.application.dtos.models.ModelListResponseDTO;
 import piotr.hadala.buy4wheelscar.application.dtos.models.ModelResponseDTO;
-import piotr.hadala.buy4wheelscar.application.dtos.models.ModelSearchParamsDTO;
-
-import java.util.UUID;
 
 public interface ModelController {
     @PostMapping("/models")
@@ -16,7 +13,7 @@ public interface ModelController {
     @GetMapping("/models/{id}")
     ResponseEntity<ModelResponseDTO> getModelById(@Valid @RequestBody int id);
     @GetMapping("/models")
-    ResponseEntity<ModelListResponseDTO> getModelsByParams(ModelSearchParamsDTO params);
+    ResponseEntity<ModelListResponseDTO> getModels();
 
     @DeleteMapping("/models/{id}")
     ResponseEntity<Void> deleteModelById(@Valid @PathVariable int id);

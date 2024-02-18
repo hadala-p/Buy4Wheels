@@ -10,10 +10,7 @@ import piotr.hadala.buy4wheelscar.application.controllers.ModelController;
 import piotr.hadala.buy4wheelscar.application.dtos.models.ModelCreateRequestDTO;
 import piotr.hadala.buy4wheelscar.application.dtos.models.ModelListResponseDTO;
 import piotr.hadala.buy4wheelscar.application.dtos.models.ModelResponseDTO;
-import piotr.hadala.buy4wheelscar.application.dtos.models.ModelSearchParamsDTO;
 import piotr.hadala.buy4wheelscar.internal.services.ModelService;
-
-import java.util.UUID;
 
 @RestController
 @AllArgsConstructor
@@ -35,10 +32,8 @@ public class ModelControllerImpl implements ModelController {
     }
 
     @Override
-    public ResponseEntity<ModelListResponseDTO> getModelsByParams(ModelSearchParamsDTO params) {
-        return ResponseEntity
-                .status(HttpStatus.OK)
-                .body(modelService.getModelsByParams(params));
+    public ResponseEntity<ModelListResponseDTO> getModels() {
+        return ResponseEntity.ok(modelService.getModels());
     }
 
     @Override

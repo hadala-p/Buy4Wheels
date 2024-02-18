@@ -16,8 +16,6 @@ public interface ModelRepository extends CrudRepository<ModelEntity, Integer>, J
     Optional<ModelEntity> findByName(String name);
     @Override
     List<ModelEntity> findAll();
-    @Query("select m from ModelEntity m where m.brand.id = :brandId")
-    List<ModelEntity> findByCarBrandId(@Param("brandId") int brandId);
     @Override
     @Modifying
     @Query("delete from ModelEntity m where m.id = :id")

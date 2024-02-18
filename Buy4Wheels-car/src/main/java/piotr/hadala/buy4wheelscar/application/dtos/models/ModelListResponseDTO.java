@@ -8,7 +8,5 @@ import java.util.List;
 @Accessors(chain = true)
 @Data
 public class ModelListResponseDTO {
-    int totalPages;
-    long totalElements;
     private List<ModelResponseDTO> models;
 }
