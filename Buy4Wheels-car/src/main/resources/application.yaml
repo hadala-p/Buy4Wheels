@@ -1,9 +1,9 @@
 db:
-  name: warehouseman
+  name: buy4wheels
   username: "root"
-  password: ""
-  url: jdbc:mysql://localhost:3306/${db.name}
-  driver-class-name: com.mysql.cj.jdbc.Driver
+  password: "rootpassword"
+  url: jdbc:postgresql://localhost:5432/${db.name}
+  driver-class-name: org.postgresql.Driver
 
 server:
   port: 8010
@@ -13,10 +13,15 @@ spring:
     url: ${db.url}
     username: ${db.username}
     password: ${db.password}
+  liquibase:
+    change-log: classpath:db/changelog/master.xml
   jpa:
     show-sql: true
     hibernate:
       ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
   mvc:
     static-path-pattern: /**
 
