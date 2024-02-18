@@ -1,0 +1,9 @@
+server:
+  port: 8000
+
+security:
+  jwt:
+    # 30 sec
+    expiration: 30000
+
+    secret: 6324e3e3-3e3e-3e3e-3e3e
