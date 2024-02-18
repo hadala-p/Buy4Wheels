@@ -19,7 +19,6 @@ import piotr.hadala.buy4wheelscar.internal.repositories.ModelRepository;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.UUID;
 
 @Service
 @RequiredArgsConstructor
@@ -41,7 +40,7 @@ public class ModelServiceImpl implements ModelService{
     }
 
     @Override
-    public ModelResponseDTO getModelById(UUID id) {
+    public ModelResponseDTO getModelById(int id) {
         return modelRepository
                 .findById(id)
                 .map(modelMapper::toResponse)
@@ -63,7 +62,7 @@ public class ModelServiceImpl implements ModelService{
     }
 
     @Override
-    public void deleteModelById(UUID id) {
+    public void deleteModelById(int id) {
         ModelEntity modelEntity =
                 modelRepository
                         .findById(id)

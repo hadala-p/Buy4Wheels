@@ -28,7 +28,7 @@ public class ModelControllerImpl implements ModelController {
     }
 
     @Override
-    public ResponseEntity<ModelResponseDTO> getModelById(@Valid @PathVariable UUID id) {
+    public ResponseEntity<ModelResponseDTO> getModelById(@Valid @PathVariable int id) {
         return ResponseEntity
                 .status(HttpStatus.OK)
                 .body(modelService.getModelById(id));
@@ -42,7 +42,7 @@ public class ModelControllerImpl implements ModelController {
     }
 
     @Override
-    public ResponseEntity<Void> deleteModelById(UUID id) {
+    public ResponseEntity<Void> deleteModelById(int id) {
         modelService.deleteModelById(id);
         return ResponseEntity
                 .status(HttpStatus.NO_CONTENT)

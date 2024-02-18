@@ -9,9 +9,9 @@ import java.util.UUID;
 
 public interface ModelService {
     ModelResponseDTO createModel(ModelCreateRequestDTO body);
-    ModelResponseDTO getModelById(UUID id);
+    ModelResponseDTO getModelById(int id);
     ModelListResponseDTO getModelsByParams(ModelSearchParamsDTO params);
 
-    void deleteModelById(UUID id);
+    void deleteModelById(int id);
 
 }

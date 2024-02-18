@@ -14,8 +14,11 @@ import java.util.List;
 @NoArgsConstructor
 @Getter
 @Setter
-@Table(name="CarBrand")
-public class BrandEntity extends BaseEntity {
+@Table(name="car_brand")
+public class BrandEntity {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
     @Column
     private String name;
     @Column

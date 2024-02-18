@@ -12,8 +12,11 @@ import piotr.hadala.buy4wheelslib.entities.BaseEntity;
 @NoArgsConstructor
 @Getter
 @Setter
-@Table(name="CarModel")
-public class ModelEntity extends BaseEntity {
+@Table(name="car_model")
+public class ModelEntity{
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
     @Column
     private String name;
     @JoinColumn(name = "brand_id")

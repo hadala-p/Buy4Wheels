@@ -14,10 +14,10 @@ public interface ModelController {
     @PostMapping("/models")
     ResponseEntity<ModelResponseDTO> createModel(@Valid @RequestBody ModelCreateRequestDTO body);
     @GetMapping("/models/{id}")
-    ResponseEntity<ModelResponseDTO> getModelById(@Valid @RequestBody UUID id);
+    ResponseEntity<ModelResponseDTO> getModelById(@Valid @RequestBody int id);
     @GetMapping("/models")
     ResponseEntity<ModelListResponseDTO> getModelsByParams(ModelSearchParamsDTO params);
 
     @DeleteMapping("/models/{id}")
-    ResponseEntity<Void> deleteModelById(@Valid @PathVariable UUID id);
+    ResponseEntity<Void> deleteModelById(@Valid @PathVariable int id);
 }
