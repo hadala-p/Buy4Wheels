@@ -5,76 +5,12 @@ services:
     image: postgres
     environment:
       POSTGRES_PASSWORD: rootpassword
-      POSTGRES_DB: springlibrary
+      POSTGRES_DB: buy4wheels
       POSTGRES_USER: root
     ports:
       - "5432:5432"
-    networks:
-      - my_network
-
   adminer:
     image: adminer
     restart: always
     ports:
       - "8085:8085"
-
-
-  eureka:
-    hostname: eureka
-    image: eureka:latest
-    healthcheck:
-      test: [ "CMD", "curl", "-f", "http://localhost:8761" ]
-      interval: 10s
-      timeout: 5s
-      retries: 5
-    build:
-      context: ./Buy4Wheels-eureka
-      dockerfile: Dockerfile
-    ports:
-      - "8761:8761"
-    networks:
-      - my_network
-
-
-  gateway:
-    hostname: gateway
-    image: gateway:latest
-    build:
-      context: ./Buy4Wheels-gateway
-      dockerfile: Dockerfile
-    ports:
-      - "8080:8080"
-    depends_on:
-      - eureka
-    networks:
-      - my_network
-
-networks:
-  my_network:
-    name: my_network
-    driver: bridge
-  # service3:
-  #   build:
-  #     context: ./rest-service
-  #     dockerfile: Dockerfile
-  #   ports:
-  #     - "9000:9000"
-  #   depends_on:
-  #     - postgres
-  #   environment: 
-  #     - "SPRING_PROFILES_ACTIVE=docker"
-  #   restart:
-  #     "on-failure: 10"
-
-  # service4:
-  #   build:
-  #     context: ./web-service
-  #     dockerfile: Dockerfile
-  #   ports:
-  #     - "9001:9001"
-  #   depends_on:
-  #     - postgres
-  #   environment: 
-  #     - "SPRING_PROFILES_ACTIVE=docker"
-  #   restart:
-  #     "on-failure: 10"
