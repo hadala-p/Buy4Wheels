@@ -16,8 +16,8 @@ public interface OfferController {
     ResponseEntity<OfferListResponseDTO> getOffers();
     @GetMapping("/offers/{id}")
     ResponseEntity<OfferResponseDTO> getOfferById(@Valid @RequestParam UUID id);
-//    @GetMapping("/offers/models/{modelName}")
-//    ResponseEntity<OfferListResponseDTO> getOffersByModelName(@Valid @PathVariable String modelName);
+    @GetMapping("/offers/models/{modelName}")
+    ResponseEntity<OfferListResponseDTO> getOffersByModelName(@Valid @PathVariable String modelName);
 //    @GetMapping("/offers/brands/{brandName}")
 //    ResponseEntity<OfferListResponseDTO> getOffersByBrandName(@Valid @PathVariable String brandName);
 //    @GetMapping("/offers/brands/{brandName}/models/{modelName}")
