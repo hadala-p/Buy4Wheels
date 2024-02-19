@@ -23,6 +23,6 @@ spring:
   mvc:
     static-path-pattern: /**
 
-apis:
-  warehouseman-auth:
-    url: http://localhost:8000
+#apis:
+#  buy4wheels-auth:
+#    url: http://localhost:8000
