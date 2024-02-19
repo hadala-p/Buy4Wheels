@@ -10,6 +10,7 @@ import piotr.hadala.buy4wheelsoffer.application.dtos.OfferResponseDTO;
 import piotr.hadala.buy4wheelsoffer.internal.services.OfferService;
 
 import java.util.UUID;
+
 @RequiredArgsConstructor
 @RestController
 public class OfferControllerImpl implements OfferController {
@@ -33,5 +34,14 @@ public class OfferControllerImpl implements OfferController {
     @Override
     public ResponseEntity<OfferListResponseDTO> getOffersByYear(int year) {
         return ResponseEntity.ok(offerService.getOffersByYear(year));
+    }
+
+    @Override
+    public ResponseEntity<OfferListResponseDTO> getOffersByMileage(int max) {
+        return ResponseEntity.ok(offerService.getOffersByMileage(max));
+    }
+    @Override
+    public ResponseEntity<OfferListResponseDTO> getOffersByFuelType(String fuelType) {
+        return ResponseEntity.ok(offerService.getOffersByFuelType(fuelType));
     }
 }

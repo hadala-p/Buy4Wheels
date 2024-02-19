@@ -1,11 +1,12 @@
 package piotr.hadala.buy4wheelsoffer.internal.services;
 
-import jakarta.persistence.EntityNotFoundException;
+
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import piotr.hadala.buy4wheelscar.application.dtos.brands.BrandResponseDTO;
 import piotr.hadala.buy4wheelscar.application.dtos.models.ModelResponseDTO;
+import piotr.hadala.buy4wheelslib.exceptions.EntityNotFoundException;
 import piotr.hadala.buy4wheelsoffer.application.dtos.OfferCreateRequestDTO;
 import piotr.hadala.buy4wheelsoffer.application.dtos.OfferListResponseDTO;
 import piotr.hadala.buy4wheelsoffer.application.dtos.OfferResponseDTO;
@@ -63,6 +64,28 @@ public class OfferServiceImpl implements OfferService{
         List<OfferEntity> offers = repository.findAllByYear(year);
         if (offers.isEmpty()) {
             throw new EntityNotFoundException("Offer not found with year: " + year);
+        }
+        OfferListResponseDTO responseDTO = new OfferListResponseDTO();
+        responseDTO.setOffers(offers.stream().map(mapper::toResponse).collect(Collectors.toList()));
+        return responseDTO;
+    }
+
+    @Override
+    public OfferListResponseDTO getOffersByMileage(int max) {
+        List<OfferEntity> offers = repository.findAllByMileageLessThan(max);
+        if (offers.isEmpty()) {
+            throw new EntityNotFoundException("Offer not found with mileage less than: " + max);
+        }
+        OfferListResponseDTO responseDTO = new OfferListResponseDTO();
+        responseDTO.setOffers(offers.stream().map(mapper::toResponse).collect(Collectors.toList()));
+        return responseDTO;
+    }
+
+    @Override
+    public OfferListResponseDTO getOffersByFuelType(String fuelType) {
+        List<OfferEntity> offers = repository.findAllByFuelType(fuelType);
+        if (offers.isEmpty()) {
+            throw new EntityNotFoundException("Offer not found with fuel type: " + fuelType);
         }
         OfferListResponseDTO responseDTO = new OfferListResponseDTO();
         responseDTO.setOffers(offers.stream().map(mapper::toResponse).collect(Collectors.toList()));

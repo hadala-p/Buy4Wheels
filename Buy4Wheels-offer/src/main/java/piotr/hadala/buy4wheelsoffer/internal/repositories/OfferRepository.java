@@ -13,5 +13,8 @@ public interface OfferRepository extends CrudRepository<OfferEntity, UUID>{
     @Override
     List<OfferEntity> findAll();
     List<OfferEntity> findAllByYear(int year);
+    List<OfferEntity> findAllByMileageLessThan(int max);
+
+    List<OfferEntity> findAllByFuelType(String fuelType);
 
 }
