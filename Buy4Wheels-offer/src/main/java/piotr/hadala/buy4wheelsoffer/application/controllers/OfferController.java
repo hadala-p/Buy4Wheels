@@ -20,9 +20,9 @@ public interface OfferController {
     ResponseEntity<OfferListResponseDTO> getOffersByModelName(@Valid @PathVariable String modelName);
     @GetMapping("/offers/brands/{brandName}")
     ResponseEntity<OfferListResponseDTO> getOffersByBrandName(@Valid @PathVariable String brandName);
-//    @GetMapping("/offers/brands/{brandName}/models/{modelName}")
-//    ResponseEntity<OfferListResponseDTO> getOffersByBrandNameAndModelName(@Valid @PathVariable String brandName,
-//                                                                      @Valid @PathVariable String modelName);
+    @GetMapping("/offers/brands/{brandName}/models/{modelName}")
+    ResponseEntity<OfferListResponseDTO> getOffersByBrandNameAndModelName(@Valid @PathVariable String brandName,
+                                                                      @Valid @PathVariable String modelName);
     @GetMapping("/offers/years/{year}")
     ResponseEntity<OfferListResponseDTO> getOffersByYear(@Valid @PathVariable int year);
     @GetMapping("/offers/prices")

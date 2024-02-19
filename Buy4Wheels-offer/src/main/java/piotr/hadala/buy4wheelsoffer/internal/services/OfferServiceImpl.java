@@ -93,6 +93,18 @@ public class OfferServiceImpl implements OfferService{
     }
 
     @Override
+    public OfferListResponseDTO getOffersByBrandNameAndModelName(String brandName, String modelName) {
+        List<OfferEntity> offers = repository.findAllByBrand_NameAndModel_Name(brandName, modelName);
+        if (offers.isEmpty()) {
+            throw new EntityNotFoundException("Offer not found with brand name: " + brandName
+                    + " and model name: " + modelName);
+        }
+        OfferListResponseDTO responseDTO = new OfferListResponseDTO();
+        responseDTO.setOffers(offers.stream().map(mapper::toResponse).collect(Collectors.toList()));
+        return responseDTO;
+    }
+
+    @Override
     public OfferListResponseDTO getOffersByPriceRange(double min, double max) {
         List<OfferEntity> offers = repository.findAllByPriceBetween(min, max);
         if (offers.isEmpty()) {
