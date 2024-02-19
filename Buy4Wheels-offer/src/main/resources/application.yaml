@@ -24,5 +24,10 @@ spring:
 apis:
   buy4wheels-car:
     url: http://localhost:8010
-  buy4wheels-auth:
-    url: http://localhost:8000
+feign:
+  client:
+    config:
+      buy4wheels-car:
+        url: http://localhost:8010
+#  buy4wheels-auth:
+#    url: http://localhost:8000

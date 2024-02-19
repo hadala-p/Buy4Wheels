@@ -1,5 +1,7 @@
 package piotr.hadala.buy4wheelsoffer.application.dtos;
 
+import jakarta.validation.constraints.Max;
+import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 import lombok.Data;
@@ -11,11 +13,13 @@ public class OfferCreateRequestDTO {
     @NotNull
     private int modelId;
     @NotNull
-    @Size(min = 4, max = 4)
+    @Min(1900)
+    @Max(20100)
     private int year;
     @NotNull
-    @Size(min = 1)
-    private double mileage;
+    @Min(1)
+    @Max(1000000)
+    private int mileage;
     @Size(min = 1, max = 30)
     private String fuelType;
     @Size(min = 1, max = 30)

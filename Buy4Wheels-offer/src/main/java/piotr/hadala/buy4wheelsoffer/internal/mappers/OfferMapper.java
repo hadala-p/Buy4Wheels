@@ -2,6 +2,11 @@ package piotr.hadala.buy4wheelsoffer.internal.mappers;
 
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
+import piotr.hadala.buy4wheelscar.application.dtos.models.BrandSimpleDTO;
+import piotr.hadala.buy4wheelscar.application.dtos.models.ModelCreateRequestDTO;
+import piotr.hadala.buy4wheelscar.application.dtos.models.ModelListResponseDTO;
+import piotr.hadala.buy4wheelscar.application.dtos.models.ModelResponseDTO;
+import piotr.hadala.buy4wheelscar.internal.entities.ModelEntity;
 import piotr.hadala.buy4wheelslib.mappers.MainMapperConfig;
 import piotr.hadala.buy4wheelsoffer.application.dtos.OfferCreateRequestDTO;
 import piotr.hadala.buy4wheelsoffer.application.dtos.OfferListResponseDTO;
@@ -12,17 +17,18 @@ import java.util.List;
 
 @Mapper(config = MainMapperConfig.class)
 public interface OfferMapper {
+
     OfferResponseDTO toResponse(OfferEntity entity);
-
-
-    @Mapping(target = "brandId", ignore = true)
-    @Mapping(target = "modelId", ignore = true)
-    @Mapping(target = "id", ignore = true)
-    OfferEntity toEntity(OfferCreateRequestDTO dto);
-
     default OfferListResponseDTO toResponse(List<OfferEntity> entities) {
         OfferListResponseDTO response = new OfferListResponseDTO();
         response.setOffers(entities.stream().map(this::toResponse).toList());
         return response;
     }
+    @Mapping (target = "id", ignore = true)
+    @Mapping(target = "brand.id", source = "brandId")
+    @Mapping(target = "brand.name", ignore = true)
+    @Mapping (target = "model.id", source = "modelId")
+    @Mapping (target = "model.name", ignore = true)
+
+    OfferEntity toEntity(OfferCreateRequestDTO dto);
 }

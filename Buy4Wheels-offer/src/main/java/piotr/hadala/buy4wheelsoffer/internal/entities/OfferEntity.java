@@ -1,30 +1,30 @@
 package piotr.hadala.buy4wheelsoffer.internal.entities;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import piotr.hadala.buy4wheelslib.entities.BaseEntity;
 
+@Entity
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
 @Setter
-@Entity
 @Table(name = "offer")
 public class OfferEntity extends BaseEntity {
 
-    @Column
-    private int brandId;
-    @Column
-    private int modelId;
+    @JoinColumn(name = "brand_id")
+    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.DETACH)
+    private BrandEntity brand;
+    @JoinColumn(name = "model_id")
+    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.DETACH)
+    private ModelEntity model;
     @Column
     private int year;
     @Column
-    private double mileage;
+    private int mileage;
     @Column
     private String fuelType;
     @Column

@@ -11,7 +11,7 @@ public class OfferResponseDTO {
     private BrandSimpleDTO brand;
     private ModelSimpleDTO model;
     private int year;
-    private double mileage;
+    private int mileage;
     private String fuelType;
     private String transmission;
     private int enginePower;
