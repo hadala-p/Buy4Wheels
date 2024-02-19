@@ -31,6 +31,12 @@ public class BrandServiceImpl implements BrandService {
 
     @Override
     public BrandResponseDTO getBrandById(int id) {
-        return brandRepository.findById(id).map(brandMapper::toResponse).orElseThrow(() -> new EntityNotFoundException());
+        return brandRepository.findById(id).map(brandMapper::toResponse).orElseThrow(EntityNotFoundException::new);
+    }
+
+    @Override
+    public void deleteModelById(int id) {
+        BrandEntity brandEntity = brandRepository.findById(id).orElseThrow(EntityNotFoundException::new);
+        brandRepository.delete(brandEntity);
     }
 }

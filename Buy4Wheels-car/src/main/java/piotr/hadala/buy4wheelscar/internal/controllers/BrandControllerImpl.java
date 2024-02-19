@@ -32,4 +32,11 @@ public class BrandControllerImpl implements BrandController {
                 .status(HttpStatus.OK)
                 .body(brandService.getBrandById(id));
     }
+    @Override
+    public ResponseEntity<Void> deleteBrandById(int id) {
+        brandService.deleteModelById(id);
+        return ResponseEntity
+                .status(HttpStatus.NO_CONTENT)
+                .build();
+    }
 }
