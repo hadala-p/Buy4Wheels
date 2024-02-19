@@ -15,4 +15,7 @@ public interface  BrandController {
 
     @GetMapping("/brands")
     ResponseEntity<BrandListResponseDTO> getBrands();
+
+    @GetMapping("/brands/{id}")
+    ResponseEntity<BrandResponseDTO> getBrandById(@Valid @RequestBody int id);
 }

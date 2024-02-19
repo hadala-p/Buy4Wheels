@@ -1,7 +1,10 @@
 package piotr.hadala.buy4wheelscar.internal.controllers;
 
+import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 import piotr.hadala.buy4wheelscar.application.controllers.BrandController;
 import piotr.hadala.buy4wheelscar.application.dtos.brands.BrandListResponseDTO;
@@ -22,5 +25,11 @@ public class BrandControllerImpl implements BrandController {
     @Override
     public ResponseEntity<BrandListResponseDTO> getBrands() {
         return ResponseEntity.ok(brandService.getBrands());
+    }
+    @Override
+    public ResponseEntity<BrandResponseDTO> getBrandById(@Valid @PathVariable int id) {
+        return ResponseEntity
+                .status(HttpStatus.OK)
+                .body(brandService.getBrandById(id));
     }
 }

@@ -8,4 +8,6 @@ public interface BrandService {
     BrandResponseDTO createBrand(BrandCreateRequestDTO brandCreateRequestDTO);
 
     BrandListResponseDTO getBrands();
+
+    BrandResponseDTO getBrandById(int id);
 }

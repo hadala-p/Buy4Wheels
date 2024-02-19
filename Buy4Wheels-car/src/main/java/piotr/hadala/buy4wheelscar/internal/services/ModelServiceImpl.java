@@ -1,5 +1,6 @@
 package piotr.hadala.buy4wheelscar.internal.services;
 
+import jakarta.persistence.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import piotr.hadala.buy4wheelscar.application.dtos.models.ModelCreateRequestDTO;
@@ -10,7 +11,6 @@ import piotr.hadala.buy4wheelscar.internal.entities.ModelEntity;
 import piotr.hadala.buy4wheelscar.internal.mappers.ModelMapper;
 import piotr.hadala.buy4wheelscar.internal.repositories.BrandRepository;
 import piotr.hadala.buy4wheelscar.internal.repositories.ModelRepository;
-import piotr.hadala.buy4wheelslib.exceptions.EntityNotFoundException;
 
 @Service
 @RequiredArgsConstructor
@@ -22,7 +22,7 @@ public class ModelServiceImpl implements ModelService {
     @Override
     public ModelResponseDTO createModel(ModelCreateRequestDTO body) {
         ModelEntity modelEntity = modelMapper.toEntity(body);
-        BrandEntity brandEntity = brandRepository.findById(body.getBrandId()).orElseThrow(() -> new EntityNotFoundException(BrandEntity.class, body.getBrandId()));
+        BrandEntity brandEntity = brandRepository.findById(body.getBrandId()).orElseThrow(() -> new EntityNotFoundException());
         modelEntity.setBrand(brandEntity);
         ModelEntity persistEntity = modelRepository.save(modelEntity);
         return modelMapper.toResponse(persistEntity);
@@ -36,12 +36,12 @@ public class ModelServiceImpl implements ModelService {
 
     @Override
     public ModelResponseDTO getModelById(int id) {
-        return modelRepository.findById(id).map(modelMapper::toResponse).orElseThrow(() -> new EntityNotFoundException(ModelEntity.class, id));
+        return modelRepository.findById(id).map(modelMapper::toResponse).orElseThrow(() -> new EntityNotFoundException());
     }
 
     @Override
     public void deleteModelById(int id) {
-        ModelEntity modelEntity = modelRepository.findById(id).orElseThrow(() -> new EntityNotFoundException(ModelEntity.class, id));
+        ModelEntity modelEntity = modelRepository.findById(id).orElseThrow(() -> new EntityNotFoundException());
         modelRepository.delete(modelEntity);
 
     }
