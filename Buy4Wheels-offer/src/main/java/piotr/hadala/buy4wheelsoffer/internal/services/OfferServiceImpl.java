@@ -103,6 +103,17 @@ public class OfferServiceImpl implements OfferService{
         return responseDTO;
     }
 
+    @Override
+    public OfferListResponseDTO getOffersByEnginePowerRange(int min, int max) {
+        List<OfferEntity> offers = repository.findAllByEnginePowerBetween(min, max);
+        if (offers.isEmpty()) {
+            throw new EntityNotFoundException("Offer not found with engine power between: " + min + " and " + max);
+        }
+        OfferListResponseDTO responseDTO = new OfferListResponseDTO();
+        responseDTO.setOffers(offers.stream().map(mapper::toResponse).collect(Collectors.toList()));
+        return responseDTO;
+    }
+
 
     @Override
     public OfferListResponseDTO getAllOffers() {

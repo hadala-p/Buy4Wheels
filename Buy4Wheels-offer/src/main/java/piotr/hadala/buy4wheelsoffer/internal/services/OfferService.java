@@ -19,5 +19,7 @@ public interface OfferService {
 
     OfferListResponseDTO getOffersByTransmission(String transmission);
 
+    OfferListResponseDTO getOffersByEnginePowerRange(int min, int max);
+
     OfferListResponseDTO getAllOffers();
 }

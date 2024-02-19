@@ -48,4 +48,9 @@ public class OfferControllerImpl implements OfferController {
     public ResponseEntity<OfferListResponseDTO> getOffersByTransmission(String transmission) {
         return ResponseEntity.ok(offerService.getOffersByTransmission(transmission));
     }
+
+    @Override
+    public ResponseEntity<OfferListResponseDTO> getOffersByEnginePowerRange(int min, int max) {
+        return ResponseEntity.ok(offerService.getOffersByEnginePowerRange(min, max));
+    }
 }
