@@ -16,5 +16,6 @@ public interface OfferRepository extends CrudRepository<OfferEntity, UUID>{
     List<OfferEntity> findAllByMileageLessThan(int max);
 
     List<OfferEntity> findAllByFuelType(String fuelType);
+    List<OfferEntity> findAllByTransmission(String transmission);
 
 }

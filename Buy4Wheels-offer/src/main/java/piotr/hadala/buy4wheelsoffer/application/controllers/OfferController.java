@@ -36,8 +36,8 @@ public interface OfferController {
     ResponseEntity<OfferListResponseDTO> getOffersByMileage(@Valid @RequestParam int max);
     @GetMapping("/offers/fuelTypes/{fuelType}")
     ResponseEntity<OfferListResponseDTO> getOffersByFuelType(@Valid @PathVariable String fuelType);
-//    @GetMapping("/offers/transmissions/{transmission}")
-//    ResponseEntity<OfferResponseDTO> getOffersByTransmission(@Valid @PathVariable String transmission);
+    @GetMapping("/offers/transmissions/{transmission}")
+    ResponseEntity<OfferListResponseDTO> getOffersByTransmission(@Valid @PathVariable String transmission);
 //    @GetMapping("/offers/enginePowers?min={min}&max={max}")
 //    ResponseEntity<OfferResponseDTO> getOffersByEnginePowerRange(@Valid @PathVariable int min,
 //                                                                 @Valid @PathVariable int max);

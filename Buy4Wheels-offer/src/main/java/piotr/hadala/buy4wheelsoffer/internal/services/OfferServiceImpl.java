@@ -92,6 +92,17 @@ public class OfferServiceImpl implements OfferService{
         return responseDTO;
     }
 
+    @Override
+    public OfferListResponseDTO getOffersByTransmission(String transmission) {
+        List<OfferEntity> offers = repository.findAllByTransmission(transmission);
+        if (offers.isEmpty()) {
+            throw new EntityNotFoundException("Offer not found with transmission: " + transmission);
+        }
+        OfferListResponseDTO responseDTO = new OfferListResponseDTO();
+        responseDTO.setOffers(offers.stream().map(mapper::toResponse).collect(Collectors.toList()));
+        return responseDTO;
+    }
+
 
     @Override
     public OfferListResponseDTO getAllOffers() {

@@ -44,4 +44,8 @@ public class OfferControllerImpl implements OfferController {
     public ResponseEntity<OfferListResponseDTO> getOffersByFuelType(String fuelType) {
         return ResponseEntity.ok(offerService.getOffersByFuelType(fuelType));
     }
+    @Override
+    public ResponseEntity<OfferListResponseDTO> getOffersByTransmission(String transmission) {
+        return ResponseEntity.ok(offerService.getOffersByTransmission(transmission));
+    }
 }

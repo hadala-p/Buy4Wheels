@@ -17,5 +17,7 @@ public interface OfferService {
 
     OfferListResponseDTO getOffersByFuelType(String fuelType);
 
+    OfferListResponseDTO getOffersByTransmission(String transmission);
+
     OfferListResponseDTO getAllOffers();
 }
