@@ -30,7 +30,7 @@ public class BrandControllerImplTest {
     private BrandService brandService;
 
     @Test
-    public void createBrand_should_return_brand_response_DTO() throws Exception {
+    public void createBrand_should_return_brandResponseDTO() throws Exception {
         // Given
         BrandResponseDTO brandResponseDTO = new BrandResponseDTO(1, "TestBrand", "TestCountry", "TestDescription");
         Mockito.when(brandService.createBrand(any(BrandCreateRequestDTO.class))).thenReturn(brandResponseDTO);
@@ -47,7 +47,7 @@ public class BrandControllerImplTest {
     }
 
     @Test
-    public void getBrands_should_return_brand_list_response_DTO() throws Exception {
+    public void getBrands_should_return_brandListResponseDTO() throws Exception {
         // Given
         BrandListResponseDTO brandListResponseDTO = new BrandListResponseDTO();
         brandListResponseDTO.setModels(Arrays.asList(new BrandResponseDTO(1, "TestBrand", "TestCountry", "TestDescription")));
@@ -65,7 +65,7 @@ public class BrandControllerImplTest {
     }
 
     @Test
-    public void getBrandById_should_return_brand_response_DTO() throws Exception {
+    public void getBrandById_should_return_brandResponseDTO() throws Exception {
         // Given
         BrandResponseDTO brandResponseDTO = new BrandResponseDTO(1, "TestBrand", "TestCountry", "TestDescription");
         Mockito.when(brandService.getBrandById(1)).thenReturn(brandResponseDTO);

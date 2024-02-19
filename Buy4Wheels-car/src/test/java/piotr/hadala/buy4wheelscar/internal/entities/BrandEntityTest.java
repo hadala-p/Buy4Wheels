@@ -17,7 +17,7 @@ public class BrandEntityTest {
     private TestEntityManager entityManager;
 
     @Test
-    public void shouldSaveAndFindBrandEntity() {
+    public void should_save_and_find_brand_entity() {
         // Given
         BrandEntity brand = new BrandEntity(0, "TestBrand", "TestCountry", "TestDescription", null);
         entityManager.persistAndFlush(brand);
@@ -34,7 +34,7 @@ public class BrandEntityTest {
 
     @Test
     @Sql("/test-sql/insert-test-brands.sql") // Sample SQL file for data pre-run
-    public void shouldRetrieveBrandWithModels() {
+    public void should_retrieve_brand_with_models() {
         // When
         BrandEntity brand = entityManager.find(BrandEntity.class, 1);
 

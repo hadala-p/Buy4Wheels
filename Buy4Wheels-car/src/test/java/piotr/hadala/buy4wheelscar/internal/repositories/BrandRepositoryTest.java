@@ -17,7 +17,7 @@ public class BrandRepositoryTest {
 
 
     @Test
-    public void shouldFindAllBrands() {
+    public void should_find_all_brands() {
         // Given
         BrandEntity brand = new BrandEntity();
         brand.setName("TestBrand");
@@ -32,7 +32,7 @@ public class BrandRepositoryTest {
         assertThat(brands).isNotEmpty();
     }
     @Test
-    public void shouldDeleteBrandSuccessfully() {
+    public void should_delete_brand_successfully() {
         // Given
         BrandEntity brand = new BrandEntity(1, "BrandToDelete", "TestCountry", "TestDescription", null);
         brandRepository.save(brand);

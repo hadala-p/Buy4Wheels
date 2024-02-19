@@ -33,7 +33,7 @@ public class BrandServiceImplTest {
     private BrandServiceImpl brandService;
 
     @Test
-    public void createBrand_shouldReturnBrandResponseDTO() {
+    public void createBrand_should_return_BrandResponseDTO() {
         // Given
         BrandCreateRequestDTO createRequestDTO = new BrandCreateRequestDTO("BrandName", "Country", "Description");
         BrandEntity brandEntity = new BrandEntity(1, "BrandName", "Country", "Description", null);
@@ -54,7 +54,7 @@ public class BrandServiceImplTest {
     }
 
     @Test
-    public void getBrands_shouldReturnBrandListResponseDTO() {
+    public void getBrands_should_return_BrandListResponseDTO() {
         // Given
         List<BrandEntity> brandEntities = Collections.singletonList(new BrandEntity(1, "BrandName", "Country", "Description", null));
         BrandListResponseDTO expectedResponse = new BrandListResponseDTO();
@@ -73,7 +73,7 @@ public class BrandServiceImplTest {
     }
 
     @Test
-    public void getBrandById_shouldReturnBrandResponseDTO() {
+    public void getBrandById_should_return_BrandResponseDTO() {
         // Given
         BrandEntity brandEntity = new BrandEntity(1, "BrandName", "Country", "Description", null);
         BrandResponseDTO expectedResponse = new BrandResponseDTO(1, "BrandName", "Country", "Description");
@@ -91,7 +91,7 @@ public class BrandServiceImplTest {
     }
 
     @Test
-    public void getBrandById_whenBrandNotFound_shouldThrowRuntimeException() {
+    public void getBrandById_whenBrandNotFound_should_throw_RuntimeException() {
         // Given
         when(brandRepository.findById(anyInt())).thenReturn(Optional.empty());
 
