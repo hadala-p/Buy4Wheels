@@ -37,6 +37,11 @@ public class OfferControllerImpl implements OfferController {
     }
 
     @Override
+    public ResponseEntity<OfferListResponseDTO> getOffersByPriceRange(double min, double max) {
+        return ResponseEntity.ok(offerService.getOffersByPriceRange(min, max));
+    }
+
+    @Override
     public ResponseEntity<OfferListResponseDTO> getOffersByMileage(int max) {
         return ResponseEntity.ok(offerService.getOffersByMileage(max));
     }

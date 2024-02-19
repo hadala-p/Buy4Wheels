@@ -13,6 +13,8 @@ public interface OfferService {
 
     OfferListResponseDTO getOffersByYear(int year);
 
+    OfferListResponseDTO getOffersByPriceRange(double min, double max);
+
     OfferListResponseDTO getOffersByMileage(int max);
 
     OfferListResponseDTO getOffersByFuelType(String fuelType);

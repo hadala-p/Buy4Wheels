@@ -71,6 +71,17 @@ public class OfferServiceImpl implements OfferService{
     }
 
     @Override
+    public OfferListResponseDTO getOffersByPriceRange(double min, double max) {
+        List<OfferEntity> offers = repository.findAllByPriceBetween(min, max);
+        if (offers.isEmpty()) {
+            throw new EntityNotFoundException("Offer not found with price between: " + min + " and " + max);
+        }
+        OfferListResponseDTO responseDTO = new OfferListResponseDTO();
+        responseDTO.setOffers(offers.stream().map(mapper::toResponse).collect(Collectors.toList()));
+        return responseDTO;
+    }
+
+    @Override
     public OfferListResponseDTO getOffersByMileage(int max) {
         List<OfferEntity> offers = repository.findAllByMileageLessThan(max);
         if (offers.isEmpty()) {

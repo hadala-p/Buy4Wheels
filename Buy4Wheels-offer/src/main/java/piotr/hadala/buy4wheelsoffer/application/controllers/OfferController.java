@@ -24,14 +24,11 @@ public interface OfferController {
 //    ResponseEntity<OfferListResponseDTO> getOffersByBrandNameAndModelName(@Valid @PathVariable String brandName,
 //                                                                      @Valid @PathVariable String modelName);
 //    @GetMapping("/offers/brands/{brandName}/models/{modelName}/year/{year}")
-//    ResponseEntity<OfferResponseDTO> getOffersByBrandNameAndModelNameAndYear(@Valid @PathVariable String brandName,
-//                                                                            @Valid @PathVariable String modelName,
-//                                                                            @Valid @PathVariable int year);
     @GetMapping("/offers/years/{year}")
     ResponseEntity<OfferListResponseDTO> getOffersByYear(@Valid @PathVariable int year);
-//    @GetMapping("/offers/prices?min={min}&max={max}")
-//    ResponseEntity<OfferListResponseDTO> getOffersByPriceRange(@Valid @PathVariable double min,
-//                                                           @Valid @PathVariable double max);
+    @GetMapping("/offers/prices")
+    ResponseEntity<OfferListResponseDTO> getOffersByPriceRange(@Valid @RequestParam double min,
+                                                           @Valid @RequestParam double max);
     @GetMapping("/offers/mileages")
     ResponseEntity<OfferListResponseDTO> getOffersByMileage(@Valid @RequestParam int max);
     @GetMapping("/offers/fuelTypes/{fuelType}")
