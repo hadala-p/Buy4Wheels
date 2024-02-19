@@ -21,5 +21,7 @@ public interface OfferService {
 
     OfferListResponseDTO getOffersByEnginePowerRange(int min, int max);
 
+    OfferListResponseDTO getOffersByColor(String color);
+
     OfferListResponseDTO getAllOffers();
 }

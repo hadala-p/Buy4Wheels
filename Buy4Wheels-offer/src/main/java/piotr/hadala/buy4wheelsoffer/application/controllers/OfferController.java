@@ -17,11 +17,11 @@ public interface OfferController {
     @GetMapping("/offers/{id}")
     ResponseEntity<OfferResponseDTO> getOfferById(@Valid @RequestParam UUID id);
 //    @GetMapping("/offers/models/{modelName}")
-//    ResponseEntity<OfferResponseDTO> getOffersByModelName(@Valid @PathVariable String modelName);
+//    ResponseEntity<OfferListResponseDTO> getOffersByModelName(@Valid @PathVariable String modelName);
 //    @GetMapping("/offers/brands/{brandName}")
-//    ResponseEntity<OfferResponseDTO> getOffersByBrandName(@Valid @PathVariable String brandName);
+//    ResponseEntity<OfferListResponseDTO> getOffersByBrandName(@Valid @PathVariable String brandName);
 //    @GetMapping("/offers/brands/{brandName}/models/{modelName}")
-//    ResponseEntity<OfferResponseDTO> getOffersByBrandNameAndModelName(@Valid @PathVariable String brandName,
+//    ResponseEntity<OfferListResponseDTO> getOffersByBrandNameAndModelName(@Valid @PathVariable String brandName,
 //                                                                      @Valid @PathVariable String modelName);
 //    @GetMapping("/offers/brands/{brandName}/models/{modelName}/year/{year}")
 //    ResponseEntity<OfferResponseDTO> getOffersByBrandNameAndModelNameAndYear(@Valid @PathVariable String brandName,
@@ -30,7 +30,7 @@ public interface OfferController {
     @GetMapping("/offers/years/{year}")
     ResponseEntity<OfferListResponseDTO> getOffersByYear(@Valid @PathVariable int year);
 //    @GetMapping("/offers/prices?min={min}&max={max}")
-//    ResponseEntity<OfferResponseDTO> getOffersByPriceRange(@Valid @PathVariable double min,
+//    ResponseEntity<OfferListResponseDTO> getOffersByPriceRange(@Valid @PathVariable double min,
 //                                                           @Valid @PathVariable double max);
     @GetMapping("/offers/mileages")
     ResponseEntity<OfferListResponseDTO> getOffersByMileage(@Valid @RequestParam int max);
@@ -41,10 +41,10 @@ public interface OfferController {
     @GetMapping("/offers/enginePowers")
     ResponseEntity<OfferListResponseDTO> getOffersByEnginePowerRange(@Valid @RequestParam int min,
                                                                  @Valid @RequestParam int max);
-//    @GetMapping("/offers/colors/{color}")
-//    ResponseEntity<OfferResponseDTO> getOffersByColor(@Valid @PathVariable String color);
+    @GetMapping("/offers/colors/{color}")
+    ResponseEntity<OfferListResponseDTO> getOffersByColor(@Valid @PathVariable String color);
 //    @GetMapping("/offers/availability/{isAvailable}")
-//    ResponseEntity<OfferResponseDTO> getOffersByAvailability(@Valid @PathVariable boolean isAvailable);
+//    ResponseEntity<OfferListResponseDTO> getOffersByAvailability(@Valid @PathVariable boolean isAvailable);
 //    @GetMapping("/offers/search?query={query}")
 //    ResponseEntity<OfferResponseDTO> searchOffers(@Valid @PathVariable String query);
 

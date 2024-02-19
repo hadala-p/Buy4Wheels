@@ -114,6 +114,17 @@ public class OfferServiceImpl implements OfferService{
         return responseDTO;
     }
 
+    @Override
+    public OfferListResponseDTO getOffersByColor(String color) {
+        List<OfferEntity> offers = repository.findAllByColor(color);
+        if (offers.isEmpty()) {
+            throw new EntityNotFoundException("Offer not found with color: " + color);
+        }
+        OfferListResponseDTO responseDTO = new OfferListResponseDTO();
+        responseDTO.setOffers(offers.stream().map(mapper::toResponse).collect(Collectors.toList()));
+        return responseDTO;
+    }
+
 
     @Override
     public OfferListResponseDTO getAllOffers() {

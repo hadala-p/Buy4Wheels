@@ -53,4 +53,8 @@ public class OfferControllerImpl implements OfferController {
     public ResponseEntity<OfferListResponseDTO> getOffersByEnginePowerRange(int min, int max) {
         return ResponseEntity.ok(offerService.getOffersByEnginePowerRange(min, max));
     }
+    @Override
+    public ResponseEntity<OfferListResponseDTO> getOffersByColor(String color) {
+        return ResponseEntity.ok(offerService.getOffersByColor(color));
+    }
 }
