@@ -30,8 +30,8 @@ public interface OfferController {
 //    ResponseEntity<OfferResponseDTO> getOffersByBrandNameAndModelNameAndYear(@Valid @PathVariable String brandName,
 //                                                                            @Valid @PathVariable String modelName,
 //                                                                            @Valid @PathVariable int year);
-//    @GetMapping("/offers/years/{year}")
-//    ResponseEntity<OfferResponseDTO> getOffersByYear(@Valid @PathVariable int year);
+    @GetMapping("/offers/years/{year}")
+    ResponseEntity<OfferListResponseDTO> getOffersByYear(@Valid @PathVariable int year);
 //    @GetMapping("/offers/prices?min={min}&max={max}")
 //    ResponseEntity<OfferResponseDTO> getOffersByPriceRange(@Valid @PathVariable double min,
 //                                                           @Valid @PathVariable double max);

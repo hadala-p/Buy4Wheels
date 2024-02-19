@@ -29,4 +29,9 @@ public class OfferControllerImpl implements OfferController {
     public ResponseEntity<OfferResponseDTO> getOfferById(UUID id) {
         return ResponseEntity.ok(offerService.getOfferById(id));
     }
+
+    @Override
+    public ResponseEntity<OfferListResponseDTO> getOffersByYear(int year) {
+        return ResponseEntity.ok(offerService.getOffersByYear(year));
+    }
 }

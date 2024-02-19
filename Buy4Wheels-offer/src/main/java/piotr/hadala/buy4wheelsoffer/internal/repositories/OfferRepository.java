@@ -12,5 +12,6 @@ import java.util.UUID;
 public interface OfferRepository extends CrudRepository<OfferEntity, UUID>{
     @Override
     List<OfferEntity> findAll();
+    List<OfferEntity> findAllByYear(int year);
 
 }

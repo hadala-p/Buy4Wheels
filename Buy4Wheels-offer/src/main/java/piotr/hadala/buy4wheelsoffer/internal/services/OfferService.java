@@ -8,5 +8,6 @@ import java.util.UUID;
 public interface OfferService {
     OfferResponseDTO createOffer(OfferCreateRequestDTO offerCreateRequestDTO);
     OfferResponseDTO getOfferById(UUID id);
+    OfferListResponseDTO getOffersByYear(int year);
     OfferListResponseDTO getAllOffers();
 }

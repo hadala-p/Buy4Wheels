@@ -17,7 +17,10 @@ import piotr.hadala.buy4wheelsoffer.internal.entities.OfferEntity;
 import piotr.hadala.buy4wheelsoffer.internal.mappers.OfferMapper;
 import piotr.hadala.buy4wheelsoffer.internal.repositories.OfferRepository;
 
+import java.util.List;
 import java.util.UUID;
+import java.util.stream.Collectors;
+
 @RequiredArgsConstructor
 @Service
 public class OfferServiceImpl implements OfferService{
@@ -54,6 +57,18 @@ public class OfferServiceImpl implements OfferService{
                 .map(mapper::toResponse)
                 .orElseThrow(() -> new EntityNotFoundException("Offer not found with id: " + id));
     }
+
+    @Override
+    public OfferListResponseDTO getOffersByYear(int year) {
+        List<OfferEntity> offers = repository.findAllByYear(year);
+        if (offers.isEmpty()) {
+            throw new EntityNotFoundException("Offer not found with year: " + year);
+        }
+        OfferListResponseDTO responseDTO = new OfferListResponseDTO();
+        responseDTO.setOffers(offers.stream().map(mapper::toResponse).collect(Collectors.toList()));
+        return responseDTO;
+    }
+
 
     @Override
     public OfferListResponseDTO getAllOffers() {
