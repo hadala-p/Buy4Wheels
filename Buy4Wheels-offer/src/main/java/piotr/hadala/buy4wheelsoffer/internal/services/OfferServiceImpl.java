@@ -1,11 +1,12 @@
 package piotr.hadala.buy4wheelsoffer.internal.services;
 
-import jakarta.persistence.EntityNotFoundException;
+
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import piotr.hadala.buy4wheelscar.application.dtos.brands.BrandResponseDTO;
 import piotr.hadala.buy4wheelscar.application.dtos.models.ModelResponseDTO;
+import piotr.hadala.buy4wheelslib.exceptions.EntityNotFoundException;
 import piotr.hadala.buy4wheelsoffer.application.dtos.OfferCreateRequestDTO;
 import piotr.hadala.buy4wheelsoffer.application.dtos.OfferListResponseDTO;
 import piotr.hadala.buy4wheelsoffer.application.dtos.OfferResponseDTO;
@@ -17,7 +18,10 @@ import piotr.hadala.buy4wheelsoffer.internal.entities.OfferEntity;
 import piotr.hadala.buy4wheelsoffer.internal.mappers.OfferMapper;
 import piotr.hadala.buy4wheelsoffer.internal.repositories.OfferRepository;
 
+import java.util.List;
 import java.util.UUID;
+import java.util.stream.Collectors;
+
 @RequiredArgsConstructor
 @Service
 public class OfferServiceImpl implements OfferService{
@@ -54,6 +58,118 @@ public class OfferServiceImpl implements OfferService{
                 .map(mapper::toResponse)
                 .orElseThrow(() -> new EntityNotFoundException("Offer not found with id: " + id));
     }
+
+    @Override
+    public OfferListResponseDTO getOffersByYear(int year) {
+        List<OfferEntity> offers = repository.findAllByYear(year);
+        if (offers.isEmpty()) {
+            throw new EntityNotFoundException("Offer not found with year: " + year);
+        }
+        OfferListResponseDTO responseDTO = new OfferListResponseDTO();
+        responseDTO.setOffers(offers.stream().map(mapper::toResponse).collect(Collectors.toList()));
+        return responseDTO;
+    }
+
+    @Override
+    public OfferListResponseDTO getOffersByModelName(String modelName) {
+        List<OfferEntity> offers = repository.findAllByModel_Name(modelName);
+        if (offers.isEmpty()) {
+            throw new EntityNotFoundException("Offer not found with model name: " + modelName);
+        }
+        OfferListResponseDTO responseDTO = new OfferListResponseDTO();
+        responseDTO.setOffers(offers.stream().map(mapper::toResponse).collect(Collectors.toList()));
+        return responseDTO;
+    }
+
+    @Override
+    public OfferListResponseDTO getOffersByBrandName(String brandName) {
+        List<OfferEntity> offers = repository.findAllByBrand_Name(brandName);
+        if (offers.isEmpty()) {
+            throw new EntityNotFoundException("Offer not found with brand name: " + brandName);
+        }
+        OfferListResponseDTO responseDTO = new OfferListResponseDTO();
+        responseDTO.setOffers(offers.stream().map(mapper::toResponse).collect(Collectors.toList()));
+        return responseDTO;
+    }
+
+    @Override
+    public OfferListResponseDTO getOffersByBrandNameAndModelName(String brandName, String modelName) {
+        List<OfferEntity> offers = repository.findAllByBrand_NameAndModel_Name(brandName, modelName);
+        if (offers.isEmpty()) {
+            throw new EntityNotFoundException("Offer not found with brand name: " + brandName
+                    + " and model name: " + modelName);
+        }
+        OfferListResponseDTO responseDTO = new OfferListResponseDTO();
+        responseDTO.setOffers(offers.stream().map(mapper::toResponse).collect(Collectors.toList()));
+        return responseDTO;
+    }
+
+    @Override
+    public OfferListResponseDTO getOffersByPriceRange(double min, double max) {
+        List<OfferEntity> offers = repository.findAllByPriceBetween(min, max);
+        if (offers.isEmpty()) {
+            throw new EntityNotFoundException("Offer not found with price between: " + min + " and " + max);
+        }
+        OfferListResponseDTO responseDTO = new OfferListResponseDTO();
+        responseDTO.setOffers(offers.stream().map(mapper::toResponse).collect(Collectors.toList()));
+        return responseDTO;
+    }
+
+    @Override
+    public OfferListResponseDTO getOffersByMileage(int max) {
+        List<OfferEntity> offers = repository.findAllByMileageLessThan(max);
+        if (offers.isEmpty()) {
+            throw new EntityNotFoundException("Offer not found with mileage less than: " + max);
+        }
+        OfferListResponseDTO responseDTO = new OfferListResponseDTO();
+        responseDTO.setOffers(offers.stream().map(mapper::toResponse).collect(Collectors.toList()));
+        return responseDTO;
+    }
+
+    @Override
+    public OfferListResponseDTO getOffersByFuelType(String fuelType) {
+        List<OfferEntity> offers = repository.findAllByFuelType(fuelType);
+        if (offers.isEmpty()) {
+            throw new EntityNotFoundException("Offer not found with fuel type: " + fuelType);
+        }
+        OfferListResponseDTO responseDTO = new OfferListResponseDTO();
+        responseDTO.setOffers(offers.stream().map(mapper::toResponse).collect(Collectors.toList()));
+        return responseDTO;
+    }
+
+    @Override
+    public OfferListResponseDTO getOffersByTransmission(String transmission) {
+        List<OfferEntity> offers = repository.findAllByTransmission(transmission);
+        if (offers.isEmpty()) {
+            throw new EntityNotFoundException("Offer not found with transmission: " + transmission);
+        }
+        OfferListResponseDTO responseDTO = new OfferListResponseDTO();
+        responseDTO.setOffers(offers.stream().map(mapper::toResponse).collect(Collectors.toList()));
+        return responseDTO;
+    }
+
+    @Override
+    public OfferListResponseDTO getOffersByEnginePowerRange(int min, int max) {
+        List<OfferEntity> offers = repository.findAllByEnginePowerBetween(min, max);
+        if (offers.isEmpty()) {
+            throw new EntityNotFoundException("Offer not found with engine power between: " + min + " and " + max);
+        }
+        OfferListResponseDTO responseDTO = new OfferListResponseDTO();
+        responseDTO.setOffers(offers.stream().map(mapper::toResponse).collect(Collectors.toList()));
+        return responseDTO;
+    }
+
+    @Override
+    public OfferListResponseDTO getOffersByColor(String color) {
+        List<OfferEntity> offers = repository.findAllByColor(color);
+        if (offers.isEmpty()) {
+            throw new EntityNotFoundException("Offer not found with color: " + color);
+        }
+        OfferListResponseDTO responseDTO = new OfferListResponseDTO();
+        responseDTO.setOffers(offers.stream().map(mapper::toResponse).collect(Collectors.toList()));
+        return responseDTO;
+    }
+
 
     @Override
     public OfferListResponseDTO getAllOffers() {
