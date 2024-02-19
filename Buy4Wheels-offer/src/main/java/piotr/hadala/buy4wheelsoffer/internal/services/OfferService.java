@@ -15,6 +15,8 @@ public interface OfferService {
 
     OfferListResponseDTO getOffersByModelName(String modelName);
 
+    OfferListResponseDTO getOffersByBrandName(String brandName);
+
     OfferListResponseDTO getOffersByPriceRange(double min, double max);
 
     OfferListResponseDTO getOffersByMileage(int max);

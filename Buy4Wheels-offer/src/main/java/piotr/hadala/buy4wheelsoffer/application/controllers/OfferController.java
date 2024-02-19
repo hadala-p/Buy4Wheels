@@ -18,12 +18,11 @@ public interface OfferController {
     ResponseEntity<OfferResponseDTO> getOfferById(@Valid @RequestParam UUID id);
     @GetMapping("/offers/models/{modelName}")
     ResponseEntity<OfferListResponseDTO> getOffersByModelName(@Valid @PathVariable String modelName);
-//    @GetMapping("/offers/brands/{brandName}")
-//    ResponseEntity<OfferListResponseDTO> getOffersByBrandName(@Valid @PathVariable String brandName);
+    @GetMapping("/offers/brands/{brandName}")
+    ResponseEntity<OfferListResponseDTO> getOffersByBrandName(@Valid @PathVariable String brandName);
 //    @GetMapping("/offers/brands/{brandName}/models/{modelName}")
 //    ResponseEntity<OfferListResponseDTO> getOffersByBrandNameAndModelName(@Valid @PathVariable String brandName,
 //                                                                      @Valid @PathVariable String modelName);
-//    @GetMapping("/offers/brands/{brandName}/models/{modelName}/year/{year}")
     @GetMapping("/offers/years/{year}")
     ResponseEntity<OfferListResponseDTO> getOffersByYear(@Valid @PathVariable int year);
     @GetMapping("/offers/prices")

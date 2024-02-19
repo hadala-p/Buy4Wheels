@@ -37,6 +37,11 @@ public class OfferControllerImpl implements OfferController {
     }
 
     @Override
+    public ResponseEntity<OfferListResponseDTO> getOffersByBrandName(String brandName) {
+        return ResponseEntity.ok(offerService.getOffersByBrandName(brandName));
+    }
+
+    @Override
     public ResponseEntity<OfferListResponseDTO> getOffersByYear(int year) {
         return ResponseEntity.ok(offerService.getOffersByYear(year));
     }
