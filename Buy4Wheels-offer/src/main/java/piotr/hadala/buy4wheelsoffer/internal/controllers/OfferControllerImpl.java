@@ -7,6 +7,7 @@ import piotr.hadala.buy4wheelsoffer.application.controllers.OfferController;
 import piotr.hadala.buy4wheelsoffer.application.dtos.OfferCreateRequestDTO;
 import piotr.hadala.buy4wheelsoffer.application.dtos.OfferListResponseDTO;
 import piotr.hadala.buy4wheelsoffer.application.dtos.OfferResponseDTO;
+import piotr.hadala.buy4wheelsoffer.application.dtos.OfferSearchParamsDTO;
 import piotr.hadala.buy4wheelsoffer.internal.services.OfferService;
 
 import java.util.UUID;
@@ -22,9 +23,10 @@ public class OfferControllerImpl implements OfferController {
     }
 
     @Override
-    public ResponseEntity<OfferListResponseDTO> getOffers() {
-        return ResponseEntity.ok(offerService.getAllOffers());
+    public ResponseEntity<OfferListResponseDTO> getOffersByParams(OfferSearchParamsDTO params) {
+        return ResponseEntity.ok(offerService.getOffersByParams(params));
     }
+
 
     @Override
     public ResponseEntity<OfferResponseDTO> getOfferById(UUID id) {

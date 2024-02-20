@@ -1,5 +1,6 @@
 package piotr.hadala.buy4wheelsoffer.internal.repositories;
 
+import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 import org.springframework.web.bind.annotation.RestController;
@@ -9,7 +10,7 @@ import java.util.List;
 import java.util.UUID;
 
 @Repository
-public interface OfferRepository extends CrudRepository<OfferEntity, UUID>{
+public interface OfferRepository extends CrudRepository<OfferEntity, UUID>, JpaSpecificationExecutor<OfferEntity> {
     @Override
     List<OfferEntity> findAll();
     List<OfferEntity> findAllByYear(int year);

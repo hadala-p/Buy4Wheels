@@ -3,6 +3,7 @@ package piotr.hadala.buy4wheelsoffer.internal.services;
 import piotr.hadala.buy4wheelsoffer.application.dtos.OfferCreateRequestDTO;
 import piotr.hadala.buy4wheelsoffer.application.dtos.OfferListResponseDTO;
 import piotr.hadala.buy4wheelsoffer.application.dtos.OfferResponseDTO;
+import piotr.hadala.buy4wheelsoffer.application.dtos.OfferSearchParamsDTO;
 
 import java.util.UUID;
 
@@ -33,5 +34,5 @@ public interface OfferService {
 
     OfferListResponseDTO getOffersByAvailability(boolean isAvailable);
 
-    OfferListResponseDTO getAllOffers();
+    OfferListResponseDTO getOffersByParams(OfferSearchParamsDTO params);
 }

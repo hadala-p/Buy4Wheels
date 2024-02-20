@@ -7,10 +7,16 @@ public class OfferSearchParamsDTO {
     private String brand;
     private String model;
     private Integer year;
-    private double price;
     private Integer mileage;
-    private String engine;
-    private String fuel;
-    private Integer power;
-    private String gearbox;
+    private String fuelType;
+    private String transmission;
+    private Integer powerMin;
+    private Integer powerMax;
+    private String color;
+    private Double priceMin;
+    private Double priceMax;
+    private boolean isAvailable;
+    private int pageNumer;
+    private int pageSize;
+
 }
