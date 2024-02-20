@@ -1,8 +1,8 @@
 package piotr.hadala.buy4wheelscar.internal.services;
 
-import jakarta.persistence.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import piotr.hadala.buy4wheelslib.exceptions.EntityNotFoundException;
 import piotr.hadala.buy4wheelscar.application.dtos.brands.BrandCreateRequestDTO;
 import piotr.hadala.buy4wheelscar.application.dtos.brands.BrandListResponseDTO;
 import piotr.hadala.buy4wheelscar.application.dtos.brands.BrandResponseDTO;
@@ -31,6 +31,12 @@ public class BrandServiceImpl implements BrandService {
 
     @Override
     public BrandResponseDTO getBrandById(int id) {
-        return brandRepository.findById(id).map(brandMapper::toResponse).orElseThrow(() -> new EntityNotFoundException());
+        return brandRepository.findById(id).map(brandMapper::toResponse).orElseThrow(() -> new EntityNotFoundException("Brand not found with id: " + id));
+    }
+
+    @Override
+    public void deleteBrandById(int id) {
+        BrandEntity brandEntity = brandRepository.findById(id).orElseThrow(() -> new EntityNotFoundException("Brand not found with id: " + id));
+        brandRepository.delete(brandEntity);
     }
 }
