@@ -46,7 +46,7 @@ jobs:
     #service 4
     - name: Build Buy4Wheels-offer
       run: mvn -B package
-      working-directory: ./Buy4wheels-offer
+      working-directory: ./Buy4Wheels-offer
 
     # Optional: Uploads the full dependency graph to GitHub to improve the quality of Dependabot alerts this repository can receive
     - name: Update dependency graph
