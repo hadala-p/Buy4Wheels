@@ -10,4 +10,6 @@ public interface BrandService {
     BrandListResponseDTO getBrands();
 
     BrandResponseDTO getBrandById(int id);
+
+    void deleteBrandById(int id);
 }

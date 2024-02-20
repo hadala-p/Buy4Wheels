@@ -19,7 +19,6 @@
             <directory>${project.build.outputDirectory}</directory>
             <includes>
                 <include>piotr/hadala/buy4wheelscar/application/**</include>
-                <include>piotr/hadala/buy4wheelscar/internal/entities/**</include>
             </includes>
             <outputDirectory>/</outputDirectory>
         </fileSet>

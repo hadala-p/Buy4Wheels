@@ -1,4 +1,4 @@
-package piotr.hadala.buy4wheelscar.application.dtos.models;
+package piotr.hadala.buy4wheelscar.application.dtos.brands;
 
 import lombok.Data;
 
