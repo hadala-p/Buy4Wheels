@@ -29,14 +29,14 @@ jobs:
         cache: maven
         
     #service 1
-    - name: Install Buy4Wheels-auth API module
-      run: mvn -B install -DskipTests
-      working-directory: ./Buy4Wheels-auth
-      
-    #service 2
     - name: Install Buy4Wheels-lib
       run: mvn -B install -DskipTests
       working-directory: ./Buy4Wheels-lib
+        
+    #service 2
+    - name: Install Buy4Wheels-auth API module
+      run: mvn -B install -DskipTests
+      working-directory: ./Buy4Wheels-auth
 
     #service 3
     - name: Install Buy4Wheels-car API module
