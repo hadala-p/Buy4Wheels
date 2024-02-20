@@ -2,7 +2,6 @@ package piotr.hadala.buy4wheelsoffer.internal.services;
 
 
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import piotr.hadala.buy4wheelscar.application.dtos.brands.BrandResponseDTO;
 import piotr.hadala.buy4wheelscar.application.dtos.models.ModelResponseDTO;

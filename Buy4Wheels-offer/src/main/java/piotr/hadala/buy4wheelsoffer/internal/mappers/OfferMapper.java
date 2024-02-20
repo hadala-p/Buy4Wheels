@@ -2,11 +2,6 @@ package piotr.hadala.buy4wheelsoffer.internal.mappers;
 
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
-import piotr.hadala.buy4wheelscar.application.dtos.models.BrandSimpleDTO;
-import piotr.hadala.buy4wheelscar.application.dtos.models.ModelCreateRequestDTO;
-import piotr.hadala.buy4wheelscar.application.dtos.models.ModelListResponseDTO;
-import piotr.hadala.buy4wheelscar.application.dtos.models.ModelResponseDTO;
-import piotr.hadala.buy4wheelscar.internal.entities.ModelEntity;
 import piotr.hadala.buy4wheelslib.mappers.MainMapperConfig;
 import piotr.hadala.buy4wheelsoffer.application.dtos.OfferCreateRequestDTO;
 import piotr.hadala.buy4wheelsoffer.application.dtos.OfferListResponseDTO;

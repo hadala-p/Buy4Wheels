@@ -5,7 +5,6 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import piotr.hadala.buy4wheelslib.entities.BaseEntity;
 
 import java.util.List;
 

@@ -1,7 +1,7 @@
 package piotr.hadala.buy4wheelsoffer.application.dtos;
 
 import lombok.Data;
-import piotr.hadala.buy4wheelscar.application.dtos.models.BrandSimpleDTO;
+import piotr.hadala.buy4wheelscar.application.dtos.brands.BrandSimpleDTO;
 import piotr.hadala.buy4wheelscar.application.dtos.models.ModelSimpleDTO;
 
 import java.util.UUID;
