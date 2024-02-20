@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.*;
 import piotr.hadala.buy4wheelsoffer.application.dtos.OfferCreateRequestDTO;
 import piotr.hadala.buy4wheelsoffer.application.dtos.OfferListResponseDTO;
 import piotr.hadala.buy4wheelsoffer.application.dtos.OfferResponseDTO;
+import piotr.hadala.buy4wheelsoffer.application.dtos.OfferSearchParamsDTO;
 
 import java.util.UUID;
 
@@ -13,9 +14,9 @@ public interface OfferController {
     @PostMapping("/offers")
     ResponseEntity<OfferResponseDTO> createOffer(@Valid @RequestBody OfferCreateRequestDTO offerRequestDTO);
     @GetMapping("/offers")
-    ResponseEntity<OfferListResponseDTO> getOffers();
+    ResponseEntity<OfferListResponseDTO> getOffersByParams(OfferSearchParamsDTO params);
     @GetMapping("/offers/{id}")
-    ResponseEntity<OfferResponseDTO> getOfferById(@Valid @RequestParam UUID id);
+    ResponseEntity<OfferResponseDTO> getOfferById(@Valid @PathVariable UUID id);
     @GetMapping("/offers/models/{modelName}")
     ResponseEntity<OfferListResponseDTO> getOffersByModelName(@Valid @PathVariable String modelName);
     @GetMapping("/offers/brands/{brandName}")
@@ -39,8 +40,8 @@ public interface OfferController {
                                                                  @Valid @RequestParam int max);
     @GetMapping("/offers/colors/{color}")
     ResponseEntity<OfferListResponseDTO> getOffersByColor(@Valid @PathVariable String color);
-//    @GetMapping("/offers/availability/{isAvailable}")
-//    ResponseEntity<OfferListResponseDTO> getOffersByAvailability(@Valid @PathVariable boolean isAvailable);
+    @GetMapping("/offers/availability/{isAvailable}")
+    ResponseEntity<OfferListResponseDTO> getOffersByAvailability(@Valid @PathVariable boolean isAvailable);
 //    @GetMapping("/offers/search?query={query}")
 //    ResponseEntity<OfferResponseDTO> searchOffers(@Valid @PathVariable String query);
 
