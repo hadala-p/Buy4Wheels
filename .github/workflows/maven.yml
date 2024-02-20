@@ -30,12 +30,12 @@ jobs:
     # service 1
     - name: Buy4Wheels-offer
       run: mvn -B package
-      working-directory: ./Buy4wheels-offer
+      working-directory: ./Buy4Wheels-offer
 
     # service 2
     - name: Buy4Wheels-car
       run: mvn -B package
-      working-directory: ./Buy4wheels-car
+      working-directory: ./Buy4Wheels-car
 
     # Optional: Uploads the full dependency graph to GitHub to improve the quality of Dependabot alerts this repository can receive
     - name: Update dependency graph
