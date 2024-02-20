@@ -28,12 +28,12 @@ jobs:
         distribution: 'oracle'
         cache: maven
     # service 1
-    - name: Buy4wheels-offer
+    - name: Buy4Wheels-offer
       run: mvn -B package
       working-directory: ./Buy4wheels-offer
 
     # service 2
-    - name: Buy4wheels-car
+    - name: Buy4Wheels-car
       run: mvn -B package
       working-directory: ./Buy4wheels-car
 
