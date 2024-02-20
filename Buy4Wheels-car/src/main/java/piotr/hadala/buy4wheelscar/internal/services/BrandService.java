@@ -11,5 +11,5 @@ public interface BrandService {
 
     BrandResponseDTO getBrandById(int id);
 
-    void deleteModelById(int id);
+    void deleteBrandById(int id);
 }

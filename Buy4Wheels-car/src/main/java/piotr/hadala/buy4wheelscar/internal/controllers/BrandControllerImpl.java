@@ -34,7 +34,7 @@ public class BrandControllerImpl implements BrandController {
     }
     @Override
     public ResponseEntity<Void> deleteBrandById(int id) {
-        brandService.deleteModelById(id);
+        brandService.deleteBrandById(id);
         return ResponseEntity
                 .status(HttpStatus.NO_CONTENT)
                 .build();
