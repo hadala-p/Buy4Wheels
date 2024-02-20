@@ -60,10 +60,12 @@ public class OfferControllerImpl implements OfferController {
     public ResponseEntity<OfferListResponseDTO> getOffersByMileage(int max) {
         return ResponseEntity.ok(offerService.getOffersByMileage(max));
     }
+
     @Override
     public ResponseEntity<OfferListResponseDTO> getOffersByFuelType(String fuelType) {
         return ResponseEntity.ok(offerService.getOffersByFuelType(fuelType));
     }
+
     @Override
     public ResponseEntity<OfferListResponseDTO> getOffersByTransmission(String transmission) {
         return ResponseEntity.ok(offerService.getOffersByTransmission(transmission));
@@ -73,12 +75,15 @@ public class OfferControllerImpl implements OfferController {
     public ResponseEntity<OfferListResponseDTO> getOffersByEnginePowerRange(int min, int max) {
         return ResponseEntity.ok(offerService.getOffersByEnginePowerRange(min, max));
     }
+
     @Override
     public ResponseEntity<OfferListResponseDTO> getOffersByColor(String color) {
         return ResponseEntity.ok(offerService.getOffersByColor(color));
     }
+
     @Override
     public ResponseEntity<OfferListResponseDTO> getOffersByAvailability(boolean isAvailable) {
         return ResponseEntity.ok(offerService.getOffersByAvailability(isAvailable));
     }
+
 }

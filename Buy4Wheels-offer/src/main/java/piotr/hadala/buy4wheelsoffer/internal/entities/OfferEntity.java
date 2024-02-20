@@ -5,7 +5,9 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import piotr.hadala.buy4wheelslib.entities.BaseEntity;
+import org.hibernate.annotations.GenericGenerator;
+
+import java.util.UUID;
 
 @Entity
 @AllArgsConstructor
@@ -13,7 +15,12 @@ import piotr.hadala.buy4wheelslib.entities.BaseEntity;
 @Getter
 @Setter
 @Table(name = "offer")
-public class OfferEntity extends BaseEntity {
+public class OfferEntity {
+    @Id
+    @GeneratedValue(generator = "UUID")
+    @GenericGenerator(name = "UUID", strategy = "org.hibernate.id.UUIDGenerator")
+    @Column(name = "id", updatable = false, nullable = false)
+    private UUID id;
 
     @JoinColumn(name = "brand_id")
     @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.DETACH)

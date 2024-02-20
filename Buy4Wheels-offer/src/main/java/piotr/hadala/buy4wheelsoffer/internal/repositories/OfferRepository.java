@@ -25,4 +25,5 @@ public interface OfferRepository extends CrudRepository<OfferEntity, UUID>{
     List<OfferEntity> findAllByIsAvailable(boolean isAvailable);
 
 
+
 }
