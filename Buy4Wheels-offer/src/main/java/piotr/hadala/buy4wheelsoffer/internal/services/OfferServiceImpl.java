@@ -170,6 +170,17 @@ public class OfferServiceImpl implements OfferService{
         return responseDTO;
     }
 
+    @Override
+    public OfferListResponseDTO getOffersByAvailability(boolean isAvailable) {
+        List<OfferEntity> offers = repository.findAllByIsAvailable(isAvailable);
+        if (offers.isEmpty()) {
+            throw new EntityNotFoundException("Offer not found with availability: " + isAvailable);
+        }
+        OfferListResponseDTO responseDTO = new OfferListResponseDTO();
+        responseDTO.setOffers(offers.stream().map(mapper::toResponse).collect(Collectors.toList()));
+        return responseDTO;
+    }
+
 
     @Override
     public OfferListResponseDTO getAllOffers() {

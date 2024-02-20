@@ -22,6 +22,7 @@ public interface OfferRepository extends CrudRepository<OfferEntity, UUID>{
     List<OfferEntity> findAllByTransmission(String transmission);
     List<OfferEntity> findAllByEnginePowerBetween(int min, int max);
     List<OfferEntity> findAllByColor(String color);
+    List<OfferEntity> findAllByIsAvailable(boolean isAvailable);
 
 
 }

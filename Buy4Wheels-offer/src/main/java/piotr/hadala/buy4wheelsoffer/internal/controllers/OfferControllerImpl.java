@@ -77,4 +77,8 @@ public class OfferControllerImpl implements OfferController {
     public ResponseEntity<OfferListResponseDTO> getOffersByColor(String color) {
         return ResponseEntity.ok(offerService.getOffersByColor(color));
     }
+    @Override
+    public ResponseEntity<OfferListResponseDTO> getOffersByAvailability(boolean isAvailable) {
+        return ResponseEntity.ok(offerService.getOffersByAvailability(isAvailable));
+    }
 }

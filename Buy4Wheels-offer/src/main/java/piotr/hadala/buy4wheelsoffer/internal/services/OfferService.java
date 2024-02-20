@@ -31,5 +31,7 @@ public interface OfferService {
 
     OfferListResponseDTO getOffersByColor(String color);
 
+    OfferListResponseDTO getOffersByAvailability(boolean isAvailable);
+
     OfferListResponseDTO getAllOffers();
 }

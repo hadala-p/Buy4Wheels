@@ -39,8 +39,8 @@ public interface OfferController {
                                                                  @Valid @RequestParam int max);
     @GetMapping("/offers/colors/{color}")
     ResponseEntity<OfferListResponseDTO> getOffersByColor(@Valid @PathVariable String color);
-//    @GetMapping("/offers/availability/{isAvailable}")
-//    ResponseEntity<OfferListResponseDTO> getOffersByAvailability(@Valid @PathVariable boolean isAvailable);
+    @GetMapping("/offers/availability/{isAvailable}")
+    ResponseEntity<OfferListResponseDTO> getOffersByAvailability(@Valid @PathVariable boolean isAvailable);
 //    @GetMapping("/offers/search?query={query}")
 //    ResponseEntity<OfferResponseDTO> searchOffers(@Valid @PathVariable String query);
 
