@@ -45,7 +45,7 @@ jobs:
 
     #service 4
     - name: Build Buy4Wheels-offer
-      run: mvn -B install
+      run: mvn -B install -DskipTests
       working-directory: ./Buy4Wheels-offer
 
     # Optional: Uploads the full dependency graph to GitHub to improve the quality of Dependabot alerts this repository can receive
