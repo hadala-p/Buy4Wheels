@@ -40,11 +40,11 @@ jobs:
 
     #service 3
     - name: Install Buy4Wheels-car API module
-      run: mvn -B install -DskipTests
+      run: mvn -B install
       working-directory: ./Buy4Wheels-car
 
     #service 4
-    - name: Build Buy4wheels-offer
+    - name: Build Buy4Wheels-offer
       run: mvn -B package
       working-directory: ./Buy4wheels-offer
 
