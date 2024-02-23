@@ -7,12 +7,12 @@ import piotr.hadala.buy4wheelsauth.application.controllers.TokenController;
 import piotr.hadala.buy4wheelsauth.application.dtos.TokenResponseDTO;
 import piotr.hadala.buy4wheelsauth.application.dtos.TokenVerifyRequestDTO;
 import piotr.hadala.buy4wheelsauth.application.dtos.TokenVerifyResponseDTO;
-import piotr.hadala.buy4wheelsauth.internal.services.TokeService;
+import piotr.hadala.buy4wheelsauth.internal.services.TokenService;
 
 @RequiredArgsConstructor
 @RestController
 public class TokenControllerImpl implements TokenController {
-    private final TokeService service;
+    private final TokenService service;
     @Override
     public ResponseEntity<TokenResponseDTO> getToken() {
         return ResponseEntity.ok(service.getToken());

@@ -5,7 +5,7 @@ import piotr.hadala.buy4wheelsauth.application.dtos.TokenResponseDTO;
 import piotr.hadala.buy4wheelsauth.application.dtos.TokenVerifyRequestDTO;
 import piotr.hadala.buy4wheelsauth.application.dtos.TokenVerifyResponseDTO;
 
-public interface TokeService {
+public interface TokenService {
     TokenResponseDTO getToken();
 
     TokenVerifyResponseDTO verifyToken(TokenVerifyRequestDTO requestDTO);

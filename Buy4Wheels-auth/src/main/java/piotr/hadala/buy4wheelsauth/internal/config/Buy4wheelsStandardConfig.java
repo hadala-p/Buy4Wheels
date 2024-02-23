@@ -7,7 +7,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import piotr.hadala.buy4wheelslib.config.OriginFilter;
 
 @Configuration
-public class WarehousemanStandardConfig implements WebMvcConfigurer {
+public class Buy4wheelsStandardConfig implements WebMvcConfigurer {
     @Bean
     public FilterRegistrationBean originFilter() {
         FilterRegistrationBean frb = new FilterRegistrationBean(new OriginFilter());

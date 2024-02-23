@@ -17,7 +17,7 @@ import java.util.Date;
 @Service
 @Slf4j
 @RequiredArgsConstructor
-public class TokeServiceImpl implements TokeService {
+public class TokenServiceImpl implements TokenService {
     private final JWTConfig jwtConfig;
 
     @Override
