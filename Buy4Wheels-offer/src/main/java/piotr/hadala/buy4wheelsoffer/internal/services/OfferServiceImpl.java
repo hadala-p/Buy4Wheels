@@ -230,4 +230,10 @@ public class OfferServiceImpl implements OfferService {
         responseDTO.setOffers(offers.stream().map(mapper::toResponse).collect(Collectors.toList()));
         return responseDTO;
     }
+
+    @Override
+    public void deleteOfferById(UUID id) {
+        OfferEntity offerEntity = repository.findById(id).orElseThrow(() -> new EntityNotFoundException("Offer not found with id: " + id));
+        repository.delete(offerEntity);
+    }
 }

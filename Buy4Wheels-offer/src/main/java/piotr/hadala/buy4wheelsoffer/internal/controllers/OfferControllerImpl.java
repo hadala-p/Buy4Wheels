@@ -1,6 +1,7 @@
 package piotr.hadala.buy4wheelsoffer.internal.controllers;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RestController;
 import piotr.hadala.buy4wheelsoffer.application.controllers.OfferController;
@@ -87,5 +88,14 @@ public class OfferControllerImpl implements OfferController {
     public ResponseEntity<OfferListResponseDTO> getOffersByAvailability(boolean isAvailable) {
         return ResponseEntity.ok(offerService.getOffersByAvailability(isAvailable));
     }
+
+    @Override
+    public ResponseEntity<Void> deleteOfferById(UUID id) {
+        offerService.deleteOfferById(id);
+        return ResponseEntity
+                .status(HttpStatus.NO_CONTENT)
+                .build();
+    }
+
 
 }
