@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu+Mono:ital,wght@0,400;0,700;1,400;1,700&family=Ubuntu:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+          rel="stylesheet">
+    <title>offers</title>
+    <link rel="stylesheet" href="css/main.css">
+    <script src="js/offers.js" defer></script>
+</head>
+<body>
+
+<div class="container">
+    <header class="header">
+        <h1>Buy4Wheels</h1>
+        <span><a href="models.html">models</a>|<a href="brands.html">brands</a>|<a
+                href="offers.html" style="color: #f6e730">offers</a></span><br/>
+        <span>Your session: </span>
+        <span id="session-info"></span>
+        <button onclick="refreshSession()">Refresh/Request session</button>
+    </header>
+    <section class="offer-list" id="offer-list">
+        <div class="offer-list-header">
+            <div>brand name</div>
+            <div>model name</div>
+            <div>year</div>
+            <div>mileage</div>
+            <div>fuelType</div>
+            <div>transmission</div>
+            <div>enginePower</div>
+            <div>color</div>
+            <div>price</div>
+            <div>description</div>
+            <div>available</div>
+            <div>-</div>
+        </div>
+        <div class="offer-list-header">
+            <div><select id="new-offer-brand"></select></div>
+            <div><select id="new-offer-model"></select></div>
+            <div><input required minlength="3" maxlength="20" type="number" id="new-offer-year"/></div>
+            <div><input required minlength="3" maxlength="20" type="number" id="new-offer-mileage"/></div>
+            <div><input required minlength="3" maxlength="20" type="text" id="new-offer-fuelType"/></div>
+            <div><input required minlength="3" maxlength="20" type="text" id="new-offer-transmission"/></div>
+            <div><input required minlength="3" maxlength="20" type="number" id="new-offer-enginePower"/></div>
+            <div><input required minlength="3" maxlength="20" type="text" id="new-offer-color"/></div>
+            <div><input required minlength="3" maxlength="20" type="number" id="new-offer-price"/></div>
+            <div><input required minlength="3" maxlength="255" type="text" id="new-offer-description"/></div>
+            <div><input required type="checkbox" id="new-offer-available"/></div>
+            <div>
+                <button onclick="addOffer()">Add</button>
+            </div>
+        </div>
+    </section>
+</div>
+
+<template id="template-offer">
+    <div class="offer" template-set-attr="id">
+        <div template-set="brand-name"></div>
+        <div>
+            <span template-set="model-name"></span>
+        </div>
+        <div template-set="year"></div>
+        <div template-set="mileage"></div>
+        <div template-set="fuelType"></div>
+        <div template-set="transmission"></div>
+        <div template-set="enginePower"></div>
+        <div template-set="color"></div>
+        <div template-set="price"></div>
+        <div template-set="description"></div>
+        <div template-set="available"></div>
+        <button template-set-attr="id" onclick="removeOffer(this)">X</button>
+    </div>
+</template>
+</body>
+</html>

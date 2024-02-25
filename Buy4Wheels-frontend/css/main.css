@@ -1,0 +1,129 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: rgb(72, 72, 72);
+    color: white;
+}
+
+a {
+    text-decoration: none;
+    color: green;
+}
+
+.model-list > div {
+    display: grid;
+    grid-template-columns: repeat(3, 2fr) 1fr;
+
+}
+
+.brand-list > div {
+    display: grid;
+    grid-template-columns: repeat(3, 2fr) 1fr;
+}
+
+.offer-list > div {
+    display: grid;
+    grid-template-columns: repeat(11, 2fr) 1fr;
+}
+
+.model-list-header {
+    border-bottom: white solid 1px;
+    font-size: 1.25em;
+    font-weight: bold;
+}
+
+.brand-list-header {
+    border-bottom: white solid 1px;
+    font-size: 1.25em;
+    font-weight: bold;
+}
+
+.offer-list-header {
+    border-bottom: white solid 1px;
+    font-size: 1.25em;
+    font-weight: bold;
+}
+.model{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1em;
+    border-bottom: white solid 1px;
+}
+
+button {
+    border: none;
+    background-color: rgb(49, 49, 49);
+    color: white;
+    padding: 0.5em;
+    margin: 0.5em;
+    cursor: pointer;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1em;
+    background-color: rgb(49, 49, 49);
+    color: white;
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+.header button {
+    padding: 0.5em;
+    margin: 0.5em;
+    cursor: pointer;
+    color: cornflowerblue;
+    border: blue solid 1px;
+}
+.header button:hover {
+    background-color: cornflowerblue;
+    color: white;
+}
+
+.header > div {
+    display: flex;
+    align-items: center;
+}
+
+input {
+    border: none;
+    background-color: rgb(49, 49, 49);
+    margin: 0.1em;
+    color: white;
+    border-bottom: white solid 1px;
+}
+
+
+input[type="checkbox"] {
+    display: inline-block;
+}
+
+input[type="checkbox"]::after {
+    content: "no";
+    background-color: red;
+    color: white;
+    cursor: pointer;
+    border: none;
+    border-bottom: white solid 1px;
+    text-align: center;
+    width: 30px;
+    display: block;
+    font-size: 1em;
+    font-weight: normal;
+    text-transform: none;
+    text-decoration: none;
+    text-align: center;
+    line-height: 1.5;
+    border-radius: 0.25em;
+    transition: background-color 0.3s;
+}
+
+input[type="checkbox"]:checked::after {
+    content: "yes";
+    color: black;
+    background-color: greenyellow;
+}

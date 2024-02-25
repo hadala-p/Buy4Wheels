@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu+Mono:ital,wght@0,400;0,700;1,400;1,700&family=Ubuntu:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+          rel="stylesheet">
+    <title>models</title>
+    <link rel="stylesheet" href="css/main.css">
+    <script src="js/models.js" defer></script>
+</head>
+<body>
+
+<div class="container">
+    <header class="header">
+        <h1>Buy4Wheels</h1>
+        <span><a href="models.html"style="color: #f6e730">models</a>|<a href="brands.html">brands</a>|<a
+                href="offers.html">offers</a></span><br/>
+        <span>Your session: </span>
+        <span id="session-info"></span>
+        <button onclick="refreshSession()">Refresh/Request session</button>
+    </header>
+    <section class="model-list" id="model-list">
+        <div class="model-list-header">
+            <div>name</div>
+            <div>brand name</div>
+            <div>description</div>
+        </div>
+        <div class="model-list-header">
+            <div><input required minlength="3" maxlength="20" type="text" id="new-model-name"/></div>
+            <div><select id="new-model-brand"></select></div>
+            <div><input required minlength="3" maxlength="255" type="text" id="new-model-description"/></div>
+            <div>
+                <button onclick="addModel()">Add</button>
+            </div>
+        </div>
+    </section>
+</div>
+
+<template id="template-model">
+    <div class="model" template-set-attr="id">
+        <div template-set="name"></div>
+        <div>
+            <span template-set="brand-name"></span>
+        </div>
+        <div template-set="description"></div>
+        <button template-set-attr="id" onclick="removeModel(this)">X</button>
+    </div>
+</template>
+</body>
+</html>
