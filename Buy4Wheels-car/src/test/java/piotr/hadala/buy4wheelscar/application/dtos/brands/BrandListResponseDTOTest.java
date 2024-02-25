@@ -15,10 +15,10 @@ public class BrandListResponseDTOTest {
         List<BrandResponseDTO> brandResponseDTOList = getBrandResponseDTOS();
 
         // When: Models are added to the list
-        listResponseDTO.setModels(brandResponseDTOList);
+        listResponseDTO.setBrands(brandResponseDTOList);
 
         // Then: The retrieved list of models should match the added list
-        assertThat(listResponseDTO.getModels()).isEqualTo(brandResponseDTOList);
+        assertThat(listResponseDTO.getBrands()).isEqualTo(brandResponseDTOList);
     }
 
     private static List<BrandResponseDTO> getBrandResponseDTOS() {
@@ -51,9 +51,9 @@ public class BrandListResponseDTOTest {
         brandResponseDTOList.add(brandResponseDTO);
 
         // When: Using chain setters to add models
-        BrandListResponseDTO listResponseDTO = new BrandListResponseDTO().setModels(brandResponseDTOList);
+        BrandListResponseDTO listResponseDTO = new BrandListResponseDTO().setBrands(brandResponseDTOList);
 
         // Then: The object should correctly return the added model
-        assertThat(listResponseDTO.getModels()).containsExactly(brandResponseDTO);
+        assertThat(listResponseDTO.getBrands()).containsExactly(brandResponseDTO);
     }
 }

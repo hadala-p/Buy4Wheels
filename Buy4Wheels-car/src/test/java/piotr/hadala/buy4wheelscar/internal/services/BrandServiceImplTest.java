@@ -58,7 +58,7 @@ public class BrandServiceImplTest {
         // Given
         List<BrandEntity> brandEntities = Collections.singletonList(new BrandEntity(1, "BrandName", "Country", "Description", null));
         BrandListResponseDTO expectedResponse = new BrandListResponseDTO();
-        expectedResponse.setModels(Collections.singletonList(new BrandResponseDTO(1, "BrandName", "Country", "Description")));
+        expectedResponse.setBrands(Collections.singletonList(new BrandResponseDTO(1, "BrandName", "Country", "Description")));
 
         when(brandRepository.findAll()).thenReturn(brandEntities);
         when(brandMapper.toResponse(brandEntities)).thenReturn(expectedResponse);

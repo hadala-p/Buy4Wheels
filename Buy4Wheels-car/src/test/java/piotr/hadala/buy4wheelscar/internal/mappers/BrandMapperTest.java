@@ -76,8 +76,8 @@ public class BrandMapperTest {
 
         // Then
         assertNotNull(brandListResponseDTO);
-        assertNotNull(brandListResponseDTO.getModels());
-        assertEquals(1, brandListResponseDTO.getModels().size());
-        assertEquals(brandEntity.getName(), brandListResponseDTO.getModels().get(0).getName());
+        assertNotNull(brandListResponseDTO.getBrands());
+        assertEquals(1, brandListResponseDTO.getBrands().size());
+        assertEquals(brandEntity.getName(), brandListResponseDTO.getBrands().get(0).getName());
     }
 }
