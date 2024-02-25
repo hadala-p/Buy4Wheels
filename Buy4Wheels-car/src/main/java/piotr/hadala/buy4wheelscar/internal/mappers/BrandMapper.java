@@ -16,7 +16,7 @@ public interface BrandMapper {
     BrandResponseDTO toResponse(BrandEntity entity);
     default BrandListResponseDTO toResponse(List<BrandEntity> entities) {
         return new BrandListResponseDTO()
-                .setModels(entities.stream().map(this::toResponse).toList());
+                .setBrands(entities.stream().map(this::toResponse).toList());
     }
 
     @Mapping(target = "id", ignore = true)

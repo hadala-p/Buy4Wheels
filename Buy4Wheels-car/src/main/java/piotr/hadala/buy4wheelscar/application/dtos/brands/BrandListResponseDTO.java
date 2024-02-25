@@ -8,5 +8,5 @@ import java.util.List;
 @Accessors(chain = true)
 @Data
 public class BrandListResponseDTO {
-    private List<BrandResponseDTO> models;
+    private List<BrandResponseDTO> brands;
 }
