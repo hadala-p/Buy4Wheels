@@ -42,7 +42,8 @@ public interface OfferController {
     ResponseEntity<OfferListResponseDTO> getOffersByColor(@Valid @PathVariable String color);
     @GetMapping("/offers/availability/{isAvailable}")
     ResponseEntity<OfferListResponseDTO> getOffersByAvailability(@Valid @PathVariable boolean isAvailable);
-//    @GetMapping("/offers/search?query={query}")
-//    ResponseEntity<OfferResponseDTO> searchOffers(@Valid @PathVariable String query);
+
+    @DeleteMapping("/offers/{id}")
+    ResponseEntity<Void> deleteOfferById(@Valid @PathVariable UUID id);
 
 }

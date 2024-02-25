@@ -35,4 +35,6 @@ public interface OfferService {
     OfferListResponseDTO getOffersByAvailability(boolean isAvailable);
 
     OfferListResponseDTO getOffersByParams(OfferSearchParamsDTO params);
+
+    void deleteOfferById(UUID id);
 }

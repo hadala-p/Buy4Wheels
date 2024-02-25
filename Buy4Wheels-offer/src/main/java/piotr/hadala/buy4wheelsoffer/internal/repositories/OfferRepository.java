@@ -1,6 +1,7 @@
 package piotr.hadala.buy4wheelsoffer.internal.repositories;
 
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 import piotr.hadala.buy4wheelsoffer.internal.entities.OfferEntity;
@@ -23,6 +24,9 @@ public interface OfferRepository extends CrudRepository<OfferEntity, UUID>, JpaS
     List<OfferEntity> findAllByEnginePowerBetween(int min, int max);
     List<OfferEntity> findAllByColor(String color);
     List<OfferEntity> findAllByIsAvailable(boolean isAvailable);
+
+    @Query("delete from OfferEntity m where m.id = :id")
+    void deleteById(UUID id);
 
 
 
