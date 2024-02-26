@@ -31,7 +31,7 @@ Other: <br>
 
 </div>
 
-# Usługi
+# Services
 The project consists of:
 -three backend microservices
     - auth - responsible for authorizations
