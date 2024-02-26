@@ -1,0 +1,34 @@
+db:
+  name: buy4wheels
+  username: "root"
+  password: ""
+  url: jdbc:mysql://localhost:3306/${db.name}
+  driver-class-name: com.mysql.cj.jdbc.Driver
+
+server:
+  port: 8030
+spring:
+  datasource:
+    driver-class-name: ${db.driver-class-name}
+    url: ${db.url}
+    username: ${db.username}
+    password: ${db.password}
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+  mvc:
+    static-path-pattern: /**
+
+
+apis:
+  buy4wheels-car:
+    url: http://localhost:8010
+  buy4wheels-auth:
+    url: http://localhost:8000
+feign:
+  client:
+    config:
+      buy4wheels-car:
+        url: http://localhost:8010
+

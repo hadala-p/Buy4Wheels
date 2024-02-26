@@ -1,16 +1,49 @@
 version: '3.8'
 services:
-  postgres:
-    hostname: postgres
-    image: postgres
-    environment:
-      POSTGRES_PASSWORD: rootpassword
-      POSTGRES_DB: buy4wheels
-      POSTGRES_USER: root
+#  mysql:
+#    hostname: mysql
+#    image: mysql:5.7
+#    environment:
+#      MYSQL_ROOT_PASSWORD: rootpassword
+#      MYSQL_DATABASE: buy4wheels
+#      MYSQL_USER: root
+#      MYSQL_PASSWORD: rootpassword
+#    ports:
+#      - "3306:3306"
+#
+#  adminer:
+#    image: adminer
+#    restart: always
+#    ports:
+#      - "8085:8080"
+
+  service1:
+    build:
+      context: ./Buy4Wheels-auth
+      dockerfile: Dockerfile
     ports:
-      - "5432:5432"
-  adminer:
-    image: adminer
-    restart: always
+      - "8000:8000"
+    depends_on:
+      - mysql
+
+  service2:
+    build:
+      context: ./Buy4Wheels-car
+      dockerfile: Dockerfile
     ports:
-      - "8085:8085"
+      - "8010:8010"
+    depends_on:
+      - mysql
+    profiles:
+      - docker
+
+  service3:
+    build:
+      context: ./Buy4Wheels-offer
+      dockerfile: Dockerfile
+    ports:
+      - "8030:8030"
+    depends_on:
+      - mysql
+    profiles:
+      - docker
