@@ -7,7 +7,7 @@
 This project is a desktop application in Spring Boot that was created to facilitate the management of a used car dealership and allows the dealership staff to search and deliver new car offers.
 You can check this project out by yourself 
 on [Swagger offer](https://app.swaggerhub.com/apis/PHADALA24/buy-4_wheels_offer_api/1.0.0) and [Swagger car](https://app.swaggerhub.com/apis/PHADALA24/buy-4_wheels_car_api/1.0.0) .
-If you want to see frontend screenshots also, you can go to [Images](#frontEnd).
+If you want to see frontend screenshots also, you can go to [Images](#FrontEnd).
 
 
 ## Tech Stack
@@ -33,7 +33,7 @@ Other: <br>
 
 # Services
 The project consists of:
--three backend microservices
+- three backend microservices
     - auth - responsible for authorizations
     - car - responsible for managing car brands and models
     - offer - responsible for managing offers and brands and car models included in them
@@ -44,7 +44,7 @@ The project consists of:
 #### To build the project:
 <ol>
  <li>start mySQL server</li>
- <li>import the attached database</li>
+ <li>import the attached buy4wheels.sql database</li>
  <li>Expose the database to localhost:3306</li>
 <li>Clone the repository:</li>
 
@@ -81,3 +81,21 @@ docker images
 ```
 </li>
 </ol>
+
+# FrontEnd
+
+<div align="center">
+
+<h3>Models</h3>
+
+![Models](readme_images/models.png)
+
+<h3>Brands</h3>
+
+![Brands](readme_images/brands.png)
+
+<h3>Offers</h3>
+
+![Offers](readme_images/offers.png)
+
+</div>
